@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Fatorial</title>
+</head>
+
+<body>
+	<!-- Coisas importantes
+		nome dos objetos de formulário
+		id dos objetos da página (h1, img, table, etc...)
+		eventos (onclick) sempre chamam funções
+	-->
+	<h1>Calcula o fatorial de um número</h1>
+	<form name="form1" action="#">
+		<label for="valor">Informe um número</label><br>
+		<input type="text" name="valor" value="4" >
+		<input type="button" value="Verificar" onClick="Calcular()">
+	</form>
+	<h1 id="h1resultado">Resultado: - Clique em verificar!!!! </h1>
+	
+	<script>
+		function Fatorial(n){
+			//4 = 4 * 3 * 2 * 1
+			var total = n;
+			for(var i = n-1; i > 0; i--){
+				total = total * i;
+			}
+			return total;
+		}
+		
+		function Calcular(){
+			//pegar os dados do form
+			var num = document.forms["form1"].valor.value;
+			num = parseInt(num);
+			//calcular o fatorial
+			var resultado = Fatorial(num);
+			document.getElementById("h1resultado").innerHTML = 
+				"O fatorial do número "+num+" é "+resultado;
+			document.forms["form1"].valor.value = "";
+		}
+	</script>
+</body>
+</html>

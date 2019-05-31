@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sem título</title>
+</head>
+
+<body>
+<!--
+ Crie um algoritmo que exiba na tela todos os números ímpares entre dois valores informados. Os dados deverão ser informados por meio de um formulário e exibidos em um h2 que já esteja presente em sua página web.
+
+Dicas 
+	- Todos os elementos em um form devem possuir um "nome"
+	- Todos os elementos na sua página deve possuir um id
+	- função que não recebe parametros nos eventos (modo facil)
+-->
+	<h1>Lista todos os números impares entre dosi valores</h1>
+	<form name="form1">
+		<label for="valor1">Valor inicial</label> <br>
+		<input type="number" id="valor1" name="valor1" value="10"><br>
+		<label for="valor2">Valor final</label> <br>
+		<input type="number" id="valor2" name="valor2" value="100">
+		<input type="button" value="Exibir" onClick="ExibirNumeros()">
+	</form>
+	<h1>Números Impares</h1>
+	<h2 id="hresposta">Clique em exibir para que o algoritmo exiba os números</h2>
+	<script>
+	function ExibirNumeros(){
+		//vasculho a tela e capturo os dados
+		var n1 = parseInt(document.forms["form1"].valor1.value);
+		var n2 = parseInt(document.forms["form1"].valor2.value);
+		var texto = "";
+		if(n1%2==0){
+			n1++;
+		}
+		texto = n1;
+		n1 = n1 + 2;
+		for(var i = n1; i <= n2; i=i+2){
+			texto = texto + ", "+i;
+		}
+		document.getElementById("hresposta").innerHTML = texto;
+	}
+	</script>
+</body>
+</html>
