@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Media</title>
+	
+	<style type="text/css">
+	
+		*{
+			display: block;
+		}
+		
+	</style>
+</head>
+<body>
+	<header><h1>Media</h1></header>
+	<main>
+	
+		<form action="#" method="post" name="form1">
+		
+			<label for="valor1">Valor 1</label>
+			<input type="number" id="valor1" name="valor1" requerid value="5" class="valores" >
+			<label for="valor2">Valor 2</label>
+			<input type="number" id="valor2" name="valor2" requerid value="5" class="valores" >
+			<label for="valor3">Valor 3</label>
+			<input type="number" id="valor3" name="valor3" requerid value="5" class="valores" >
+			<label for="valor4">Valor 4</label>
+			<input type="number" id="valor4" name="valor4" requerid value="5" class="valores" >
+			<label for="valor5">Valor 5</label>
+			<input type="number" id="valor5" name="valor5" requerid value="5" class="valores" >
+			<label for="valor6">Valor 6</label>
+			<input type="number" id="valor6" name="valor6" requerid value="5" class="valores" >
+			<input type="button" value="calcular" onClick="calcular()" >
+			<label for="resultado">Media:</label>
+			<input type="number" id="resultado" name="resultado" requerid value="0">
+		</form>
+		
+		
+	</main>
+	<footer>
+		<h1 id="result">Media</h1>
+	</footer>
+	
+	<script type="text/javascript">
+		
+	function calcular(){
+		
+	var tudo = document.getElementsByClassName("valores");
+	var media = 0;
+	for(i = 0; i < tudo.length; i++){
+		media += parseFloat(tudo[i].value);
+		console.log(tudo);
+	}
+	media /= tudo.length;
+		
+	document.forms["form1"].resultado.value = media;
+	
+		}
+	</script>
+</body>
+</html>

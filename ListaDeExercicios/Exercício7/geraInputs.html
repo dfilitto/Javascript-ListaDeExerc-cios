@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gera inputs</title>
+
+    <style>
+        section {
+            width: 30%;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            text-align: center;
+        }
+
+        section#data {
+            height: 15vh;
+        }
+
+        section#inputs {
+            height:auto;
+            min-height: 10em;
+        }
+
+        hr {
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <section id="data">
+        <h1>Gera Inputs</h1>
+        <hr>
+
+        <label for="num-inputs">Quantos campos deseja? </label>
+        <input type="number" id="num-inputs" name="num-inputs"> <br><br>
+
+        <button onclick="gerar()">Gerar</button>
+    </section>
+
+    <section id="inputs">
+        <h1>Calculo de média</h1>
+        <hr>
+    </section>
+</body>
+
+
+    <script>
+        function gerar() {
+            let tam = document.getElementById('num-inputs').value;
+
+            if(tam <= 0)
+                return;
+
+            let str = '<h1>Calculo de média</h1> <hr>';
+
+            str += `<form id="form1">` ;
+            for (let i = 0; i < tam; i++) {
+                str += `
+                    <label for="val${i+1}">Número${i+1}</label> <br>
+                    <input id="val${i+1}" name="val${i+1}"> <br> <br>`;
+            }
+            str += `<button type="button" onclick="calcular()">Calcular</button><br> <br> </form>`;
+
+            str += `<input id="result" placeholder="Média...."> <br><br> 
+                    <button type="button" onclick="reset()">reset</button>`;
+            document.getElementById('inputs').innerHTML = str;
+        }
+
+        function calcular() {
+            let vetForm = document.forms['form1'];
+            let valor = 0;
+
+            for (let i = 0; i < vetForm.length - 1; i++) {
+                valor += parseInt(vetForm[i].value);
+            }
+
+            document.getElementById('result').value = ( valor / (vetForm.length - 1)).toFixed(2);
+        }
+
+        function reset() {
+            document.getElementById('num-inputs').value = 0;
+            document.getElementById('inputs').innerHTML = '<h1>Calculo de média</h1> <hr>'
+        }
+    </script
+</html>

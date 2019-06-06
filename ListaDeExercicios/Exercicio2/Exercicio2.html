@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Documento sem título</title>
+</head>
+
+<body>
+	<form name="form1">
+		<label for="n1">Informe um numero</label><br>
+		<input type="number" name="n1"><br>
+		<input type="button" value="verificar" on onClick="verificar()">
+	</form>
+	<h2 id="h2resultado">Digite um número</h2>
+	<script>
+		function verificar(){
+			var num = document.forms["form1"].n1.value;
+			
+			if(num%2 == 0){
+				document.getElementById('h2resultado').innerHTML= "Par";
+			}
+			else{
+				document.getElementById('h2resultado').innerHTML= "Impar";
+			}
+		}
+	</script>
+	
+</body>
+</html>
